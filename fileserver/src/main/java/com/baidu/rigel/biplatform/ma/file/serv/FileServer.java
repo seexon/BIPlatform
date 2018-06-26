@@ -128,14 +128,24 @@ public class FileServer extends ChannelHandlerAdapter {
 	        if (args.length <= 0) {
 	        	String classLocation = FileServer.class.getProtectionDomain()
 	                    .getCodeSource().getLocation().toString().replace("file:/", "");
-	            final File configFile = new File(classLocation + "/fileserver.conf");
+                String confLocation;
+	        	if(classLocation.endsWith("//"))
+                {
+                    confLocation = classLocation + "/fileserver.conf";
+                }
+                else {
+                    confLocation = classLocation + "fileserver.conf";
+                }
+                System.out.println("========> fileserver.conf auto load : " + confLocation);
+	            final File configFile = new File(confLocation);
 	            if (configFile.exists()) {
 	                fis = new FileInputStream(configFile);
 	                properties.load(fis);
 	            }
 	        } else {
 				if (StringUtils.isNotEmpty(args[0])) {
-					fis = new FileInputStream(new File(args[0]));
+                    System.out.println("========> fileserver.conf load : " + args[0]);
+                    fis = new FileInputStream(new File(args[0]));
 					properties.load(fis);
 				} else {
 					printUsage();

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="bi" default="copy" basedir=".">
+<target name="copy" description="编绎">
+    <copy todir="E:\myProjects\BIPlatform\output"
+          file="E:\myProjects\BIPlatform\fileserver\target\fileserver-2.0.0-SNAPSHOT.jar"/>
+    <copy todir="E:\myProjects\BIPlatform\output"
+          file="E:\myProjects\BIPlatform\designer\target\designer-2.0.0-SNAPSHOT.jar"/>
+    <copy todir="E:\myProjects\BIPlatform\output"
+          file="E:\myProjects\BIPlatform\tesseract\target\tesseract-2.0.0-SNAPSHOT.jar"/>
+    <copy todir="E:\myProjects\BIPlatform\output"
+          file="E:\myProjects\BIPlatform\queryrouter\target\queryrouter-2.0.0-SNAPSHOT.jar"/>
+    <copy todir="E:\myProjects\BIPlatform\output"
+          file="E:\myProjects\BIPlatform\fileserver\src\main\java\fileserver.conf"/>
+</target>
+</project>
